@@ -30,6 +30,7 @@
       <maven.compiler.target>1.8</maven.compiler.target>
       <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
       <maven.jar.plugin>2.6</maven.jar.plugin>  <!-- NOTE: don't update without testing OpenOffice, 3.0.2 caused "Got no data stream!" after add-on installation -->
+
       <maven.assemby.plugin>2.6</maven.assemby.plugin>
       <junit.version>4.12</junit.version>
       <morfologik.version>2.1.4</morfologik.version>
@@ -82,7 +83,22 @@
               
           </plugins>
       </pluginManagement>
-  </build>
+  <plugins>
+            <plugin>
+                <groupId>org.ekstazi</groupId>
+                <artifactId>ekstazi-maven-plugin</artifactId>
+                <version>5.0.1</version>
+                <executions>
+                    <execution>
+                        <id>ekstazi</id>
+                        <goals>
+                            <goal>select</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
   <distributionManagement>
     <repository>
@@ -180,3 +196,4 @@
   </modules>
 
 </project>
+

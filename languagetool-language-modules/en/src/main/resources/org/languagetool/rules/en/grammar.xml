@@ -11343,10 +11343,10 @@ USA
             <example>This will be <marker>much</marker> work.</example>
             <example>These concerns now seem a much bolder move.</example>
         </rule>
-        <rule id="SUPERLATIVE_THAN" name="SUPERLATIVE + THAN, e.g. worst (worse) than">
+        <rule id="SUPERLATIVE_THAN" name="SUPERLATIVE + THAN, e.g. worst (worse) than"  default='off'><!-- reactivate again after regression tests -->
         <!-- Created by Tiago F. Santos, 2018-02-02 -->
             <antipattern>
-                <token skip='-1' regexp='yes'>more|less|rather|other|different</token>
+                <token skip='-1' regexp='yes'>more|less|rather|other</token>
                 <token skip='-1' postag='JJ|RB' postag_regexp='yes'/>
                <token>than</token>
             </antipattern>
@@ -11356,14 +11356,9 @@ USA
                <token>than</token>
             </antipattern>
             <antipattern>
-               <token>nothing</token>
-                <token skip='-1'>else</token>
-               <token>than</token>
-            </antipattern>
-            <antipattern>
                 <token skip='-1' postag='JJR'/>
-                <token skip='-1' postag_regexp='yes' postag='JJ|RB'/>
-                <token>than</token>
+                <token skip='1' postag_regexp='yes' postag='JJ|RB'/>
+               <token>than</token>
             </antipattern>
             <pattern>
                 <marker>
@@ -11385,12 +11380,8 @@ USA
             <example>I may as well go out than stay at home.</example>
             <example>While no nation other than the Russian Federation (and previously the f...</example>
             <example>No sooner had I gone out than it began to rain.</example>
-            <example>Most scientific breakthroughs are nothing else than the discovery of the obvious.</example>
-            <example>...t his use of the term science carries a different meaning than that covered by the term "scientific method"...</example>
-            <example>...don't think that there is any better way to learn English than by living in America.</example>
-            <!--example>No sooner had I sat down and relaxed than the phone rang.</example> XXX this is missing a comma -->
         </rule>
-        <rule id="THE_WORSE_OF" name="THE + RELATIVE + OF, e.g. the worse (worst) of">
+        <rule id="THE_WORSE_OF" name="THE + RELATIVE + OF, e.g. the worse (worst) of" default='off'><!-- reactivate again after regression tests -->
         <!-- Created by Tiago F. Santos, 2018-02-02 -->
             <antipattern>
                 <token inflected='yes'>get</token>
@@ -11408,7 +11399,7 @@ USA
                 <token>the</token>
                 <marker>
                     <token postag='(?:JJ|RB)R' postag_regexp='yes' regexp='yes'>\p{Ll}+
-                      <exception>layer<!--needs|best.*|\d+(st|nd|rd|th)--></exception>
+                      <!--exception regexp='yes'>needs|best.*|\d+(st|nd|rd|th)<exception-->
                       <exception postag='JJS|RBS' postag_regexp='yes'/></token>
                 </marker>
                 <token>of</token>
@@ -11422,7 +11413,6 @@ USA
             <example>The meeting will be postponed till the 20th of this month.</example>
             <example>After many years of conflict that lead to the weakening of all the insurgent parties,...</example>
             <example>Mary is the cuter of the two.</example>
-            <example>The exact composition of the layer of wax is not only species-dependent.</example>
         </rule>
         <rule id="MOST_SUPERLATIVE" name="No 'more' or 'most' before superlatives">
             <pattern>
@@ -16023,64 +16013,6 @@ USA
       </pattern>
       <message>The verb "to found" means "to establish," but "to find" means "to discover." Did you mean <suggestion>to find \3 \4</suggestion>.</message>
       <example correction='to find a cure'>It took a while <marker>to found a cure</marker> for malaria.</example>
-    </rule>
-    <rule id='DESIRE_ON_FOR' name='Collocation: desire on/for'>
-    <!-- Created by Nicholas Walker (Bokomaru), 2017-11-14 -->
-      <pattern>
-          <token inflected="yes">realize</token>
-          <token postag_regexp="yes" postag="DT|PRP\$"/>
-        <marker>
-          <token inflected="yes">desire</token>
-          <token>on</token>
-          <token>the</token>
-          <token>
-            <exception regexp="yes">plane|train|bus|TV|television|way|trip</exception></token>
-        </marker>
-      </pattern>
-      <message>The usual collocation for "\3" is "for" not "\4". Did you mean <suggestion>\3 for \5 \6</suggestion>?</message>
-      <example correction='desires for the business'>Even though some businessmen prefer unusual approaches to boost up their business identification, they get interested to identify the best approach to realize their <marker>desires on the business</marker> development.</example>
-    </rule>
-    <rule id="BROUGHT_THEM_IN_THE_AIRPORT" name="bring SOMEBODY in/to">
-    <!-- Created by Nicholas Walker (Bokomaru), 2017-11-14 -->
-      <pattern>
-          <token inflected="yes">bring</token>
-          <token postag="PRP"/>
-          <token regexp="yes">in|at</token>
-          <token postag="DT"/>
-          <token postag="NN"/>
-      </pattern>
-      <message>The usual collocation for "\1" is "to" not "\3" with. Did you mean <suggestion>\1 \2 to \4 \5</suggestion>.</message>
-      <example correction='brought them to the airport'>Friday came fast and the couple quitted their sweet house for took the bus who will <marker>brought them in the airport</marker>.</example>
-    </rule>
-  </rulegroup>
-
-  <rulegroup id="RETURN_IN_THE" name="return in/to">
-    <!-- Created by Nicholas Walker (Bokomaru), 2017-11-14 -->
-    <rule>
-      <pattern>
-        <marker>
-          <token inflected="yes">return</token>
-          <token regexp="yes">in|at</token>
-        </marker>
-          <token>the</token>
-      </pattern>
-      <message>The usual collocation for "\1" is "to" not "\2" with. Did you mean <suggestion>\1 to</suggestion>?</message>
-      <short>Collocation error</short>
-      <example correction='returning to'>While we were <marker>returning in</marker> the office, I have been arrested for speeding.</example>
-    </rule>
-    <rule>
-      <pattern>
-        <marker>
-          <token inflected="yes">return</token>
-          <token regexp="yes">in|at</token>
-        </marker>
-          <token postag="NNP">
-            <exception regexp="yes">[0-9].*|January|February|March|April|May|June|July|August|September|October|November|December|night</exception></token>
-          <token>
-            <exception postag="POS"/></token>
-      </pattern>
-      <message>The usual collocation for "\1" is "to" not "\2" with. Did you mean <suggestion>\1 to</suggestion>.</message>
-      <example correction='returning to'>While we were <marker>returning in</marker> Montreal, I have been arrested for speeding.</example>
     </rule>
   </rulegroup>
 

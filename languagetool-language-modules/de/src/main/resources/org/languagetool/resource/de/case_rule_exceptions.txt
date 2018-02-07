@@ -23,7 +23,6 @@ Blaue[nr]? Reiters?|Band(s|es)?|Planet(en)?|Brief[es]?|Moschee|Enzians?
 Bögen
 Braune[rn]? Zwerge?s?
 Britischen? Inseln
-Bundeskanzlers? Kurz
 Bundesminister(s?|iums?|in) für Arbeit und Soziales
 Bürgerliche[ns]? Gesetzbuche?s?
 Chinesischen? Mauer
@@ -120,7 +119,6 @@ Jüngsten? Tags?
 Kaps? der Guten Hoffnung
 Kalten Kriege?s
 Kalte[mnr]? Krieg
-Kanzler Kurz
 Katholischen? Liga|Universität
 kaum Neues
 Kleinen? Antillen|Anfragen?|Zeitung
@@ -145,17 +143,16 @@ Nationale[nr]? Sicherheitsrat(e?s)?|Volksarmee
 Niels Bohr
 Norddeutsche[nr]? Bund(e?s)?
 Obersten Gerichtshofe?s
-Oberste[nrs]? Gericht(shof)?s?|Heeresleitung|Bundesgerichts?
+Oberste[nr]? Gericht(shof)?s?|Heeresleitung|Bundesgerichts?
 of Modern
 Olympischen? Komitee|Dorf|Sommerspiele|Flagge|Winterspielen?
 Olympischen Komitees|Sommerspielen|Spielen|Dorfe?s
 Olympische[nr]? Spiele
-Österreichische[mnrs]? Klimaschutzpreis|Nationalbibliothek|Rundfunks?|Volkspartei
+Österreichische[mnrs]? Klimaschutzpreis|Rundfunks?|Volkspartei
 Palästinensischen? Autonomie.+
 Parlamentarische[rn]? Rats?|Rates|Kontrollgremiums?|Untersuchungsausschuss(es)?
 Persische[nr]? Golfs?
 Physikalische[nr]? Gesellschaft(en)?
-Real Bamako|Madrid
 Regierenden Bürgermeisters
 Regierende[mnr]? Bürgermeister(in)?
 Rheinischen? Post
