@@ -34,7 +34,6 @@ import org.languagetool.rules.Example;
 import org.languagetool.rules.MultipleWhitespaceRule;
 import org.languagetool.rules.Rule;
 import org.languagetool.rules.uk.HiddenCharacterRule;
-import org.languagetool.rules.uk.MissingHyphenRule;
 import org.languagetool.rules.uk.MixedAlphabetsRule;
 import org.languagetool.rules.uk.MorfologikUkrainianSpellerRule;
 import org.languagetool.rules.uk.SimpleReplaceRule;
@@ -161,8 +160,6 @@ public class Ukrainian extends Language {
         //            new DoublePunctuationRule(messages),
         new MorfologikUkrainianSpellerRule(messages, this),
 
-        new MissingHyphenRule(messages, ((UkrainianTagger)getTagger()).getWordTagger()),
-        
         new TokenAgreementNounVerbRule(messages),
         new TokenAgreementAdjNounRule(messages),
         new TokenAgreementPrepNounRule(messages),

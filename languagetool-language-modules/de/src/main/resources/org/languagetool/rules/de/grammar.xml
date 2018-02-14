@@ -337,7 +337,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <marker>
                     <token>et</token>
                 </marker>
-                <token regexp='yes' negate='yes'>al|cetera|l[ae]|les|des?|à|son|l|orbi</token>  <!-- Fehlalarme bei franz. Text vermeiden -->
+                <token regexp='yes' negate='yes'>al|cetera|l[ae]|les|des?|à|son|l</token>  <!-- Fehlalarme bei franz. Text vermeiden -->
             </pattern>
             <message>Meinten Sie <suggestion>er</suggestion>?</message>
             <example correction='Er'><marker>Et</marker> hat das aber so gesagt.</example>
@@ -943,7 +943,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token spacebefore="yes">en</token>
                     </marker>
-                    <token negate="yes" regexp="yes">bloc|gros|passant|masse|vogue|suite|.*[ÁáÀàÇçÉéÈèÍíÌìÓóÒòÚúÙù].*</token>
+                    <token negate="yes" regexp="yes">bloc|gros|passant|masse|vogue|.*[ÁáÀàÇçÉéÈèÍíÌìÓóÒòÚúÙù].*</token>
                 </pattern>
                 <message>Möglicher Tippfehler: Meinten Sie evt. <suggestion>eng</suggestion> oder <suggestion>in</suggestion>?</message>
                 <short>Möglicher Tippfehler</short>
@@ -8107,11 +8107,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token>kann</token>
                 <token>außerdem</token>
             </antipattern>
-            <antipattern>
-                <token regexp="yes">(trotz|seit)dem</token>
-                <token></token>
-                <token postag="SENT_END"/>
-            </antipattern>
             <rule>
                 <pattern>
                     <marker>
@@ -8133,7 +8128,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example><marker>Nach dem</marker> Essen zwei Tabletten.</example>
                 <example>Er konnte trotzdem Anwalt werden.</example>
                 <example><marker>Nachdem</marker> Essen gegen Stuttgart verloren hatte, waren wir geknickt.</example>
-                <example> Im Schweizer Skiort Zermatt herrscht derzeit Hochbetrieb und trotzdem Stillstand.</example>
             </rule>
             <rule>
                 <pattern case_sensitive="yes">
@@ -15014,11 +15008,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="RECHTS_ADV" name="'Rechts (rechts)'">
             <url>http://www.duden.de/rechtschreibung/rechts_rechtsseitig_rechterseits</url>
             <rule>
-                <antipattern case_sensitive="yes">
-                    <token>gegen</token>
-                    <token>Rechts</token>
-                    <token>“</token>
-                </antipattern>
                 <pattern case_sensitive="yes">
                     <token negate="yes">Blick</token>
                     <token regexp="yes" case_sensitive="no">gegen|halb|mit|nach</token>
@@ -15032,7 +15021,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="rechts">Ich kann nicht mit <marker>Rechts</marker> schreiben.</example>
                 <example>Nach <marker>Rechts-</marker> und Streitfragen geht es jetzt um etwas anderes.</example>
                 <example>Der Blick nach <marker>Rechts</marker> ist ein SPD-nahes Informationsportal.</example>
-                <example>Die „Offensive gegen Rechts“ und die „Radikalen Linken“ riefen zum Protest auf.</example>
             </rule>
             <rule>
                 <pattern case_sensitive="yes">
@@ -22506,14 +22494,13 @@ Andere Projekte</example>
             <rule>
                 <pattern case_sensitive="yes">
                     <token regexp="yes">[iI]m</token>
-                    <token regexp="yes">Laufe?</token>
+                    <token>Laufe</token>
                     <token>des</token>
                     <marker>
-                        <token regexp="yes">abends|(vor|nach)mittags</token>
+                        <token>abends</token>
                     </marker>
                 </pattern>
-                <message>&subanfang;<suggestion><match no="4" case_conversion="startupper"/></suggestion>&subende;</message>
-                <example correction="Vormittags">Ich rufe im Laufe des <marker>vormittags</marker> an.</example>
+                <message>&subanfang;<suggestion>Abends</suggestion>&subende;</message>
                 <example correction="Abends">Im Laufe des <marker>abends</marker> wurden wir immer ausgelassener.</example>
             </rule>
         </rulegroup>
@@ -28925,7 +28912,7 @@ Andere Projekte</example>
                 <pattern case_sensitive="yes">
                     <token skip="-1" postag="SENT_START"><exception scope="next" postag="SUB.*:GEN:.*" postag_regexp="yes"/></token>
                     <marker>
-                        <token regexp="yes">abseits|abzüglich|angelegentlich|angesichts|anhand|anlässlich|anstelle|aufgrund|aufseiten|ausgangs|außerhalb|ausweislich|behufs|beiderseits|beidseits|betreffs|bezüglich|dank|diesseits|eingangs|eingedenk|einschließlich|fernab|hinsichtlich|infolge|inklusive|inmitten|innerhalb|innert|inpuncto|jenseits|kraft|längs|längsseits|mangels|mithilfe|mittels|namens|nördlich|oberhalb|östlich|rücksichtlich|seitens|seitlich|seitwärts|südlich|trotz|unbeschadet|uneingedenk|unerachtet|unfern|ungeachtet|ungerechnet|unterhalb|unweit|vermittels(t)|vermöge|vonseiten|vorbehaltlich|vorbehältlich|wegen|weitab|westlich|willen|zeit|zugunsten|zuhanden|zulasten|zuseiten|zuungunsten|zuzüglich|zwecks</token>
+                        <token regexp="yes">wegen|(ab|zu)züglich|angesichts|abseits|anhand|aufgrund|infolge|innerhalb|außerhalb|jenseits|kraft|mithilfe|namens|seitens|unfern|zwecks</token>
                         <token regexp="yes">d(as|e[mn]|ie)(selben?)?|ein|[Ddsm]?eine[mn]?|(eu|ih|Ih|unse)re[mn]?|(jene|deine|diese)[mn]?</token>
                     </marker>
                 </pattern>
@@ -28945,8 +28932,8 @@ Andere Projekte</example>
                 <pattern case_sensitive="yes">
                     <token postag="VER:.*" postag_regexp="yes"/>
                     <marker>
-                        <token regexp="yes">abseits|abzüglich|angelegentlich|angesichts|anhand|anlässlich|anstelle|aufgrund|aufseiten|ausgangs|außerhalb|ausweislich|behufs|beiderseits|beidseits|betreffs|bezüglich|dank|diesseits|eingangs|eingedenk|einschließlich|fernab|hinsichtlich|infolge|inklusive|inmitten|innerhalb|innert|inpuncto|jenseits|kraft|längs|längsseits|mangels|mithilfe|mittels|namens|nördlich|oberhalb|östlich|rücksichtlich|seitens|seitlich|seitwärts|südlich|trotz|unbeschadet|uneingedenk|unerachtet|unfern|ungeachtet|ungerechnet|unterhalb|unweit|vermittels(t)|vermöge|vonseiten|vorbehaltlich|vorbehältlich|wegen|weitab|westlich|willen|zeit|zugunsten|zuhanden|zulasten|zuseiten|zuungunsten|zuzüglich|zwecks</token>
-                        <token regexp="yes">d(as|e[mn]|ie)(selben?)?|ein|[Ddsm]?eine[mn]?|(eu|ih|Ih|unse)re[mn]?|(jene|[dm]?eine|diese)[mn]?</token>
+                        <token regexp="yes">wegen|(ab|zu)züglich|angesichts|abseits|anhand|aufgrund|infolge|innerhalb|außerhalb|jenseits|kraft|mithilfe|namens|seitens|unfern|zwecks|hinsichtlich</token>
+                        <token regexp="yes">d(as|e[mn]|ie)(selben?)?|ein|[Ddsm]?eine[mn]?|(eu|ih|Ih|unse)re[mn]?|(jene|deine|diese)[mn]?</token>
                     </marker>
                 </pattern>
                 <message>Die Präposition '\2' erfordert in der Regel den Genitiv.</message>
